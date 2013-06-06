@@ -1,2 +1,2 @@
-Minta
-=====
+Minta - Pretty Cool
+===================
