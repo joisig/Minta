@@ -8,6 +8,11 @@
   "permissions": [
     "tabs", "http://*/*"
   ],
+  "content_scripts": [{
+    "matches": ["http://*/*","https://*/*"],
+    "css" : ["extension.css"],
+    "js": ["jquery-1.10.1.min.js", "extension.js"]
+    }],
   "browser_action": {
     "default_icon": "icon.png",
     "default_popup": "popup.html"
