@@ -1,4 +1,4 @@
-Minta - Pretty Cool
-===================
+Minta - The currency converter
+==============================
 
-Converts foreign currenty into ISK
+A Google Chrome extension that converts currency
