@@ -9,19 +9,20 @@ $(document).ready(function(){
 	});
 
 
-	function deselect() {
-	    $(".pop").slideFadeToggle(function() { 
-	        $("#peningar").removeClass("selected");
+	function deselect(element) {
+	    element.slideFadeToggle(function() { 
+	        element.next().removeClass("selected");
 	    });    
 	}
 
 	$(function() {
 	    $(document).on('click','#peningar', function() {
-	        if($(this).prev().hasClass("selected")) {
-	            deselect();               
+	    	var tooltip = $(this).prev();
+	        if(tooltip.hasClass("selected")) {
+	            deselect(tooltip);               
 	        } else {
-	            $(this).prev().addClass("selected");
-	            $(this).prev().slideFadeToggle();
+	            tooltip.addClass("selected");
+	            tooltip.slideFadeToggle();
 	        }
 	        return false;
 	    });
