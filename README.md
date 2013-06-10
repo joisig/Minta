@@ -1,5 +1,4 @@
 Minta - Pretty Cool
 ===================
 
-
-Beans
+Converts foreign currenty into ISK
