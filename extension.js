@@ -1,15 +1,10 @@
 $(document).ready(function(){
-	/*var regex = new RegExp("\$?([0-9]{0,3},)*([0-9]{0,3})(\.[0-9]{2})?$')","gi");
-	var elementsFound = $("*:contains(regex)");
-	console.log(elementsFound.length);
-	console.log(elementsFound[0]);
-*/
 	$('body *').each(function(){                                                                                                                               
 	    var obj = $(this).text();
 	    var match = obj.match(/^\$\d+(?:\.\d+)?\s*$/);
 	    if(match){
 	    	var number = Number(obj.replace(/[^0-9\.]+/g,""));
-	    	$(this).append('<div class="messagepop pop"><p>'+(number*120)+'isk</p></div><a href="#" id="peningar">ISK</a>');
+	    	$(this).append('<span><div class="messagepop pop"><p>'+(number*120)+'isk</p></div><a id="peningar">ISK</a></span>');
 	    }                                                                                                                                   
 	});
 
@@ -21,12 +16,12 @@ $(document).ready(function(){
 	}
 
 	$(function() {
-	    $("#peningar").on('click', function() {
-	        if($(this).hasClass("selected")) {
+	    $(document).on('click','#peningar', function() {
+	        if($(this).prev().hasClass("selected")) {
 	            deselect();               
 	        } else {
-	            $(this).addClass("selected");
-	            $(".pop").slideFadeToggle();
+	            $(this).prev().addClass("selected");
+	            $(this).prev().slideFadeToggle();
 	        }
 	        return false;
 	    });
