@@ -35,11 +35,11 @@ $(document).ready(function(){
 	//What happens when we change the foreign amount
 	$('#foreign').on('keyup',function(){
 		var value = $(this).val();
-		$('#local').val(value*selectedCurr.value);
+		$('#local').val((value*selectedCurr.value).toFixed(2));
 	})
 	//What happens when we change the local amount
 	$('#local').on('keyup',function(){
 		var value = $(this).val();
-		$('#foreign').val(value/selectedCurr.value);
+		$('#foreign').val((value/selectedCurr.value).toFixed(2));
 	})
 });
