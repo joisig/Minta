@@ -9,10 +9,10 @@ $(document).ready(function(){
 			currencies = data.results;
 			$('body *').each(function(){                                                                                                                               
 				var obj = $(this).text();
-				var match = obj.match(/^\$\d+(?:\.\d+)?\s*$/);
+				var match = obj.match(/^\$\d+(?:\.\d+)?\s*$/);				
 				if(match){
 					var number = Number(obj.replace(/[^0-9\.]+/g,""));
-					$(this).append('<span><div class="messagepop pop"><p>'+Math.round(currencies[0].value*number)+' Kr</p></div><a id="peningar">ISK</a></span>');
+					$(this).append('<span><div class="messagepop pop"><p>'+Math.round(currencies[0].value*number)+' Kr</p></div><a id="peningar"> <img src = "http://i.imgur.com/vgAwYLs.png" /> </a></span>');
 				}                                                                                                                                   
 			});
 		})
