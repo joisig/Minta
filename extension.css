@@ -1,0 +1,9 @@
+
+.messagepop {
+  background-color:#FFFFFF;
+  border:1px solid #999999;
+  display:none;
+  margin-top: 15px;
+  position:absolute;
+  padding: 25px 25px 20px;
+}
