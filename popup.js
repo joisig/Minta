@@ -28,6 +28,8 @@ $(document).ready(function(){
 		for(var i = 0; i < currencies.length; ++i){
 			if(value === currencies[i].shortName){
 				selectedCurr = currencies[i];
+				var loc = $('#local').val();
+				$('#foreign').val((loc/selectedCurr.value).toFixed(2));
 				break;
 			}
 		}
@@ -35,7 +37,7 @@ $(document).ready(function(){
 	//What happens when we change the foreign amount
 	$('#foreign').on('keyup',function(){
 		var value = $(this).val();
-		$('#local').val((value*selectedCurr.value).toFixed(2));
+		$('#local').val((value*selectedCurr.value).toFixed(0));
 	})
 	//What happens when we change the local amount
 	$('#local').on('keyup',function(){
