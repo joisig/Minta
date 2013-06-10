@@ -34,6 +34,8 @@ $(document).ready(function(){
 				deselect(tooltip);               
 			} else {
 				tooltip.addClass("selected");
+				tooltip.css('top',$(this).position().top+20);
+				tooltip.css('left',$(this).position().left);
 				tooltip.slideFadeToggle();
 			}
 			return false;
