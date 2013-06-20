@@ -1,9 +1,14 @@
 
 .messagepop {
   background-color:#FFFFFF;
-  border:1px solid #999999;
+  border: 1px solid rgb(0, 0, 0);
+  box-shadow: rgba(0, 0, 0, 0.980392) 1px 1px 2px 0px;
+  border-radius: 5px;
   display:none;
-  margin-top: 15px;
   position:absolute;
-  padding: 25px 25px 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  z-index: 200;
 }
+
+

@@ -3,13 +3,34 @@
 	<title></title>
 	<script src="jquery-1.10.1.min.js"></script>
 	<script src="popup.js"></script>
+	<link rel="stylesheet" type="text/css" href="popup.css">
+
 
 </head>
 <body>
 	<form>
-<label>Krónur</label> <input id="local" type="text" style="width: 80px;"/>
-<label><select id="currencies"></select></label><input id="foreign" type="text" style="width: 80px;"/>
-<a href="">Endurhlaða</a>
-</form>
+		<fieldset>
+		<legend>Gengisbreytir</legend>
+		<label>Krónur</label><br>
+		<input id="local" type="text"/></br>
+		
+		<label><select id="currencies"></select></label></br>
+		<label id="erlendLabel">Erlend mynt</label><br>	
+		
+		<input id="foreign" type="text"/></br>
+		</fieldset>
+		<fieldset>
+		<legend>Tollreiknivél</legend>
+		<label>Tollflokkur</label><br>
+		<select>
+		  <option value="electronics">Raftæki</option>
+		  <option value="chlothes">Föt</option>
+		  <option value="furniture">Húsgögn</option>
+		</select>
+		<label>Upphæð</label><br>
+		<div class="calc">5000</div><br>
+		</fieldset>
+		<a href="" class="reloadbutton" id="reload">Endurhlaða</a>
+	</form>
 </body>
 </html>
