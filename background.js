@@ -28,7 +28,7 @@ function getLatestExt(){
 };
 
 //Check if information is outdated
-if(moment(localStorage.updateDate).diff(currentDate,'days') != 0){
+if((moment(localStorage.updateDate).diff(currentDate,'days') != 0) || localStorage.updateDate == undefined){
 	getLatestExt();
 }
 
