@@ -4,7 +4,7 @@
 		'contexts' : ['page'],
 		'onclick' : function(info, tab) {
 			chrome.tabs.getSelected(null, function(tab) {
-				console.log("Hello");
+				console.log("Hello \n");
 				chrome.tabs.sendMessage(tab.id, {"getlastMouseDown": true}, function(response) {
 				});
 			});
