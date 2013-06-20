@@ -2,26 +2,27 @@ $(document).ready(function(){
 	var currencies = undefined;
 	var selectedCurr = undefined;
 	//Fetches newest exchange rate
-	function getLatestExt(){
-		$.ajax({
-			type: "GET",
-			url: 'http://apis.is/currency/m5'
-		}).done(function(data){
-			enumerateSelect(data.results);
-		})
-	};
-	//Do this once
-	getLatestExt();
+
+
+	function getFromBackground(){
+		chrome.runtime.sendMessage({req: "currency"}, function(response) {
+		  console.log("Date of data: " + response.updateDate + " Data : " + response.currency);
+		  currencies = JSON.parse(response.currency);
+		  enumerateSelect(currencies);
+		});
+	}
+	getFromBackground();
+
 	//Builds the selection box
 	function enumerateSelect(data){
 		currencies = data;
-		console.log(JSON.stringify(data));
 		for(var i = 0; i < currencies.length; ++i){
 			var currElement = $('#currencies');
 			currElement.append($("<option>").attr('value',currencies[i].shortName).text(currencies[i].shortName));
 		};
 	 	selectedCurr = data[0];
 	}
+
 	//What happens when we change the currency type.
 	$('#currencies').change(function(){
 		var value = $(this).find(":selected").text();
