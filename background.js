@@ -1,5 +1,4 @@
-﻿var date = new Date();
-var currentDate = date.getUTCDay();
+﻿var currentDate = moment();
 //Add to context Menu
 function onLoad(){
 	chrome.contextMenus.create({
@@ -29,10 +28,9 @@ function getLatestExt(){
 };
 
 //Check if information is outdated
-if(localStorage.updateDate != currentDate){
+if(moment(localStorage.updateDate).diff(currentDate,'days') != 0){
 	getLatestExt();
 }
-	getLatestExt();
 
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {

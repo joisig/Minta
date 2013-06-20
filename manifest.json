@@ -17,7 +17,7 @@
     }],
 
   "background": {
-    "scripts": ["jquery-1.10.1.min.js","background.js"]
+    "scripts": ["jquery-1.10.1.min.js","moment.min.js","background.js"]
   },
 "icons": {
     "16": "icon-bitty.png",
