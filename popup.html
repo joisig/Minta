@@ -9,6 +9,8 @@
 </head>
 <body>
 	<form>
+		<fieldset>
+		<legend>Gengisbreytir</legend>
 		<label>Krónur</label><br>
 		<input id="local" type="text"/></br>
 		
@@ -16,7 +18,18 @@
 		<label id="erlendLabel">Erlend mynt</label><br>	
 		
 		<input id="foreign" type="text"/></br>
-		
+		</fieldset>
+		<fieldset>
+		<legend>Tollreiknivél</legend>
+		<label>Tollflokkur</label><br>
+		<select>
+		  <option value="electronics">Raftæki</option>
+		  <option value="chlothes">Föt</option>
+		  <option value="furniture">Húsgögn</option>
+		</select>
+		<label>Upphæð</label><br>
+		<div class="calc">5000</div><br>
+		</fieldset>
 		<a href="" class="reloadbutton" id="reload">Endurhlaða</a>
 	</form>
 </body>
