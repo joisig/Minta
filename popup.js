@@ -2,13 +2,15 @@ $(document).ready(function(){
 	var currencies = undefined;
 	var selectedCurr = undefined;
 	var selectedTax  = undefined;
-	var json = undefined;
+	var tax = undefined;
 	var record = undefined;
-	
+	var bjossi = undefined;
+
 	$.getJSON('http://mintaconverter.appspot.com', function(data) {
-		json = data;
-		for (var i = 0; i < json.records.length; i++){
-			var  record = json.records[i];
+		tax = data;
+		buildImportDutiesOptions(data);
+		for (var i = 0; i < tax.records.length; i++){
+			var  record = tax.records[i];
 			console.log(record.vat);
 		}
 		
@@ -39,9 +41,10 @@ $(document).ready(function(){
 	}
 
 	function buildImportDutiesOptions(data){
-		for (var i = 0; i < tax.length; i++) {
+		for (var i = 0; i < tax.records.length; i++) {
 			var currElement = $('#categories');
-			currElement.append($("<option>").attr('value',tax[i].name).text(tax[i].name));
+			var  record = tax.records[i];
+			currElement.append($("<option>").attr('value',record.name).text(record.name));
 		};
 	}
 
@@ -87,9 +90,11 @@ $(document).ready(function(){
 			return;
 		}
 
-		for (var i = 0; i < tax.length; i++) {
-			if(value.attr('value') === tax[i].name){
-				selectedTax = tax[i];
+
+		for (var i = 0; i < tax.records.length; i++) {
+			var  record = tax.records[i];
+			if(value.attr('value') === record.name){
+				selectedTax = record;
 				var currentPrice = $('#local').val();
 				if(selectedTax.tax){
 					$('#tax').text(((currentPrice*selectedTax.tax)-currentPrice).toFixed(0));
