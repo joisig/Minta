@@ -22,13 +22,15 @@
 		<fieldset>
 		<legend>Tollreiknivél</legend>
 		<label>Tollflokkur</label><br>
-		<select>
-		  <option value="electronics">Raftæki</option>
-		  <option value="chlothes">Föt</option>
-		  <option value="furniture">Húsgögn</option>
+		<select id="categories">
+			<option value="none" selected="selected">Ekkert valið</option>
 		</select>
-		<label>Upphæð</label><br>
-		<div class="calc">5000</div><br>
+		<label>Virðisaukaskattur</label><br>
+		<div id="vat" class="calc"></div>
+		<label>Tollur</label><br>
+		<div id="tax" class="calc"></div>
+		<label>Upphæð með gjöldum</label><br>
+		<div id="withTax" class="calc"></div><br>
 		</fieldset>
 		<a href="" class="reloadbutton" id="reload">Endurhlaða</a>
 	</form>
