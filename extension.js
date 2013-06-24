@@ -28,7 +28,15 @@ $(document).ready(function(){
 	chrome.runtime.onMessage.addListener(
 		function(request, sender, sendResponse) {
 			if (request.req == "convert"){
-				console.log(clickedElement.text());
+				var obj = clickedElement.text();
+				var match = obj.match(/^\$\d+(?:\.\d+)?\s*$/);
+				if(match){
+					var number = Number(obj.replace(/[^0-9\.]+/g,""));
+					var currElement = $('#local');
+					//currElement.val(number);
+					//console.log(number);
+					clickedElement.append('<span><div class="messagepop pop"><p>'+Math.round(currencies[0].value*number)+' Kr</p></div><a id="peningar"> <img src = "http://i.imgur.com/vgAwYLs.png" /> </a></span>');
+				}   
 			}
 		});
 
