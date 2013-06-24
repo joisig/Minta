@@ -1,9 +1,12 @@
 $(document).ready(function(){
 	var currencies = [];
+	var clickedElement = {};
+
 	//Fetches newest exchange rate
 	function getLatestExt(){
 		chrome.runtime.sendMessage({req: "currency"}, function(response) {
-		  currencies = JSON.parse(response.currency);
+			currencies = JSON.parse(response.currency);
+		  /*
 			$('body *').each(function(){                                                                                                                               
 				var obj = $(this).text();
 				var match = obj.match(/^\$\d+(?:\.\d+)?\s*$/);				
@@ -12,10 +15,22 @@ $(document).ready(function(){
 					$(this).append('<span><div class="messagepop pop"><p>'+Math.round(currencies[0].value*number)+' Kr</p></div><a id="peningar"> <img src = "http://i.imgur.com/vgAwYLs.png" /> </a></span>');
 				}                                                                                                                                   
 			});
-		})
+		*/
+	})
 	};
 	//Do this once
 	getLatestExt();
+
+	$(document).on('mousedown', function(event){
+		clickedElement = $(event.target);
+	})
+
+	chrome.runtime.onMessage.addListener(
+		function(request, sender, sendResponse) {
+			if (request.req == "convert"){
+				console.log(clickedElement.text());
+			}
+		});
 
 
 	function deselect(element) {

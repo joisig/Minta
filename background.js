@@ -6,9 +6,8 @@ function onLoad(){
 		'contexts' : ['page'],
 		'onclick' : function(info, tab) {
 			chrome.tabs.getSelected(null, function(tab) {
-				alert("Hello \n");
-				chrome.tabs.sendMessage(tab.id, {"getlastMouseDown": true}, function(response) {
-				});
+			  chrome.tabs.sendMessage(tab.id, {req: "convert"}, function(response) {
+			  });
 			});
 		}
 	});
