@@ -2,11 +2,8 @@ $(document).ready(function(){
 	var currencies = [];
 	//Fetches newest exchange rate
 	function getLatestExt(){
-		$.ajax({
-			type: "GET",
-			url: 'http://apis.is/currency/m5'
-		}).done(function(data){
-			currencies = data.results;
+		chrome.runtime.sendMessage({req: "currency"}, function(response) {
+		  currencies = JSON.parse(response.currency);
 			$('body *').each(function(){                                                                                                                               
 				var obj = $(this).text();
 				var match = obj.match(/^\$\d+(?:\.\d+)?\s*$/);				
