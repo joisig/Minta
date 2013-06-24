@@ -35,7 +35,7 @@ $(document).ready(function(){
 					var currElement = $('#local');
 					//currElement.val(number);
 					//console.log(number);
-					clickedElement.append('<span><div class="messagepop pop"><p>'+Math.round(currencies[0].value*number)+' Kr</p></div><a id="peningar"> <img src = "http://i.imgur.com/vgAwYLs.png" /> </a></span>');
+					clickedElement.append('<span><div class="messagepop pop"><p>'+Math.round(currencies[0].value*number)+' Kr</p></div></span>');
 				}   
 			}
 		});
