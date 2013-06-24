@@ -6,7 +6,7 @@ function onLoad(){
 		'contexts' : ['page'],
 		'onclick' : function(info, tab) {
 			chrome.tabs.getSelected(null, function(tab) {
-				console.log("Hello \n");
+				alert("Hello \n");
 				chrome.tabs.sendMessage(tab.id, {"getlastMouseDown": true}, function(response) {
 				});
 			});
@@ -40,3 +40,5 @@ chrome.runtime.onMessage.addListener(
     if (request.req == "currency")
       sendResponse({updateDate: currentDate, currency: localStorage.currency});
   });
+  
+  
