@@ -2,13 +2,20 @@ $(document).ready(function(){
 	var currencies = undefined;
 	var selectedCurr = undefined;
 	var selectedTax  = undefined;
+	var json = undefined;
+	var record = undefined;
+	
+	$.getJSON('http://mintaconverter.appspot.com', function(data) {
+		json = data;
+		for (var i = 0; i < json.records.length; i++){
+			var  record = json.records[i];
+			console.log(record.vat);
+		}
+		
+		
+	});
 
-	var tax = [
-	{ 	name: "Tölvur", 	vat: 1.255 	},
-	{	name: "Verkfæri", 	vat: 1.255	},
-	{	name: "Hljóðfæri", 	vat: 1.255	},
-	{ 	name: "Föt",		vat: 1.255,		tax: 1.15	}
-	];
+
 
 	//Fetches newest exchange rate
 	function getFromBackground(){
@@ -94,4 +101,4 @@ $(document).ready(function(){
 			}
 		};
 	}
-});
+	});
