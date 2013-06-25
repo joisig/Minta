@@ -1,3 +1,4 @@
+// The filename extension.js is a little too non-specific; why not content_script.js?
 $(document).ready(function(){
 	var currencies = [];
 	var clickedElement = {};
