@@ -1,5 +1,6 @@
-﻿var currentDate = moment();
-//Add to context Menu
+var currentDate = moment();
+
+// Add to context Menu.
 function onLoad(){
 	chrome.contextMenus.create({
 		'title' : 'Breyta í ISK',
@@ -15,18 +16,20 @@ function onLoad(){
 onLoad();
 
 
-//Fetches newest exchange rate
+// Fetches the newest exchange rates.
 function getLatestExt(){
 	$.ajax({
 		type: "GET",
 		url: 'http://apis.is/currency/m5'
 	}).done(function(data){
 		localStorage.updateDate = currentDate;
+		// The variable name 'currency' is confusing here; I suppose this is a list of
+		// all currencies from apis.is? So perhaps just make it the plural 'currencies'.
 		localStorage.currency = JSON.stringify(data.results);
 	})
 };
 
-//Check if information is outdated
+// Check if information is outdated.
 if((moment(localStorage.updateDate).diff(currentDate,'days') != 0) || localStorage.updateDate == undefined){
 	getLatestExt();
 }
