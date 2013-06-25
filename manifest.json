@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "Minta",
-  "description": "Converts various different currencies to ISK(Icelandic kronas)",
+  "description": "Converts various different currencies to ISK (Icelandic kronas)",
   "version": "1.0",
 
   "permissions": [
