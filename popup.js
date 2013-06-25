@@ -4,6 +4,7 @@ $(document).ready(function(){
 	var selectedTax  = undefined;
 	var tax = undefined;
 	var record = undefined;
+	// Variable names matter; this one doesn't seem very descriptive ;)
 	var bjossi = undefined;
 
 	$.getJSON('http://mintaconverter.appspot.com', function(data) {
@@ -82,6 +83,8 @@ $(document).ready(function(){
 		calculateTax();
 	})
 
+	// As far as I can tell this only adds tax, but in fact there are also
+	// import duties, "vörugjald" on many items.
 	function calculateTax(){
 		var value = $('#categories').find(":selected");
 
